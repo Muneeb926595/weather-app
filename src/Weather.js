@@ -43,11 +43,6 @@ function Weather() {
         background[0].style.backgroundImage = `url(${backgroundimage})`;
     }
 
-    function milisecondsToDate(timeInMili) {
-        var date = new Date(timeInMili);
-        return date.toDateString();
-    }
-
     function miliSecondsToTime(timeInMili) {
         var date = new Date(timeInMili);
         return date.toLocaleTimeString();
