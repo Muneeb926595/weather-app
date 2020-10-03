@@ -1,0 +1,65 @@
+.weather__container{
+    padding: 40px;
+}
+.weather__searchContianer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.weather__serachBox{
+    border: none;
+    outline: none;
+    flex: 0.9;
+    margin-right: 10px;
+    background: transparent;
+    padding: 30px 5px 16px 5px;
+    font-size: 20px;
+    border-bottom: 1px solid #E2E2E2;
+    color: #ffffff;
+    transition: all 0.5s ease-in-out;
+}
+::placeholder{
+    color: #B1B1B1;
+}
+.weather__searchButton{
+    flex: 0.1;
+    background-color: #005995;
+    border: none;
+    outline: none;
+}
+.weatcher__searchIcon{
+    width: 30px;
+    height: 30px;
+}
+.weater__splitter{
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    padding: 10px 5px 30px 5px;
+    font-size: 20px;
+    border-bottom: 1px solid #E2E2E2;
+    color: #ffffff;
+}
+.weather__title{
+    color: #ffffff;
+    font-size: 20px;
+    padding-top: 10px;
+    margin-bottom: 3vh;
+}
+.weather__details{
+    display: flex;
+    flex-direction: column;
+}
+.weather__detailsItem{
+    display: flex;
+    justify-content: space-between;
+    padding:5px 0px 5px 0px;
+    font-size: 18px;
+}
+.weather__detailsItemTitle{
+    color: #B1B1B1;
+}
+.weather__detailsItemValue{
+    color: #ffffff;
+}
