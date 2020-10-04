@@ -81,7 +81,7 @@ function Weather() {
         <div className="weather__container">
             <div className="weather__searchContianer">
                 <input className="weather__serachBox" placeholder="Another Location" value={userSearch} onChange={(e) => setUserSearch(e.target.value)} />
-                <button className="weather__searchButton" onClick={() => { getData(userSearch); }} ><img className="weatcher__searchIcon" alt="serachIcon" src={SearchIcon} /></button >
+                <button className="weather__searchButton" onClick={() => { getMyData(userSearch); }} ><img className="weatcher__searchIcon" alt="serachIcon" src={SearchIcon} /></button >
             </div>
             <p className="weather__title">Location Details</p>
             <div className="weather__details">
