@@ -11,7 +11,11 @@ function Weather() {
     const [backgroundimage, setBackgroundImage] = useState(require('./images/clear2.jpg'));
 
     useEffect(() => {
-        getMyData("Islamabad");
+        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=islamabad&cnt=2&units=metric&appid=70a9bb2a3159f2bf172324ddf422b8ab`);
+        const data = await response.json();
+
+        setSearchCity(data.city);
+        setWeatherData(data.list);
     }, [])
 
     function calculateBackgroundImage(weatherReport, temp, windSpeed) {
