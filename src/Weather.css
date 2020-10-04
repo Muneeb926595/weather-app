@@ -1,6 +1,7 @@
 .weather__container{
     padding: 40px;
 }
+
 .weather__searchContianer{
     display: flex;
     width: 100%;
