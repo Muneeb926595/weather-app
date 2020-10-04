@@ -7,8 +7,6 @@ export const initialState = {
 }
 
 export default function myReducer(state, action) {
-    console.log('reducer is called wioth' + action);
-    console.log(action)
     switch (action.type) {
         case 'SET_WEATHER_DETAILS':
             return {
