@@ -8,7 +8,7 @@ function Weather() {
     const [userSearch, setUserSearch] = useState('');
     const [searchCity, setSearchCity] = useState({});
     const [weatherData, setWeatherData] = useState([]);
-    const [backgroundimage, setBackgroundImage] = useState(require('./images/clear2.jpg'));
+    const [backgroundimage, setBackgroundImage] = useState(require('./images/clear3.jpg'));
 
     useEffect(() => {
         async function getFirstData() {
