@@ -14,7 +14,13 @@
   align-items: center;
   justify-content: center;
 }
-
+.app__degreeSign{
+  font-size: 60px;
+  font-weight: 100;
+  position: absolute;
+  left: 110px;
+  top: -20px;
+}
 .app__rightpanel{
   margin-left: auto;
   background-color: aqua;

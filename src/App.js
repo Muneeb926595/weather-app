@@ -8,9 +8,8 @@ function App() {
   return (
     <div className="app__container"
       style={{ backgroundImage: `url(${state.backgroundImage})`, backgroundAttachment: 'fixed' }}>
-
       <div className="app__leftpanel">
-        <div className="app__temperatureDetails">{state.temperature}</div>
+        <div className="app__temperatureDetails">{state.temperature}<span className="app__degreeSign">&#8728;</span></div>
         <div className="app__locationDetails">
           <div className="app__locationName">
             {state.city}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Weather.css';
 import SearchIcon from './search.svg';
 import { useStateValue } from './StateProvider.js';
@@ -9,6 +9,10 @@ function Weather() {
     const [searchCity, setSearchCity] = useState({});
     const [weatherData, setWeatherData] = useState([]);
     const [backgroundimage, setBackgroundImage] = useState(require('./images/clear2.jpg'));
+
+    useEffect(() => {
+        getData("Islamabad");
+    }, [])
 
     function calculateBackgroundImage(weatherReport, temp, windSpeed) {
         const randNumber = Math.floor(Math.random() * 6);
@@ -23,7 +27,6 @@ function Weather() {
                 }
                 break;
             case 'Clouds':
-                console.log("called with" + weatherReport)
                 if (windSpeed > 14 && temp > 0) {
                     setBackgroundImage(require(`./images/storm${randNumber}.jpg`));
                 } else if (windSpeed > 10 && windSpeed <= 14) {
@@ -36,11 +39,9 @@ function Weather() {
                 }
                 break;
             case "Clear":
-                console.log("called with" + weatherReport)
                 setBackgroundImage(require(`./images/clear${randNumber}.jpg`));
                 break;
             default:
-                console.log("called with" + weatherReport)
                 break;
         }
     }
@@ -49,6 +50,7 @@ function Weather() {
     async function getData(cityName) {
         const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&cnt=2&units=metric&appid=70a9bb2a3159f2bf172324ddf422b8ab`);
         const data = await response.json();
+
         setSearchCity(data.city);
         setWeatherData(data.list);
 
@@ -61,9 +63,9 @@ function Weather() {
             type: 'SET_WEATHER_DETAILS',
             payload: {
                 backgroundImage: backgroundimage,
-                temperature: weatherData[1].main.temp,
+                temperature: Math.floor(weatherData[1].main.temp),
                 city: searchCity.name,
-                day: 'London'
+                day: weatherData[1].dt_txt.split(' ')[0]
             }
         })
     }
@@ -73,11 +75,13 @@ function Weather() {
         return date.toLocaleTimeString();
     }
 
+    if (!weatherData.length) return <h1 style={{ display: 'none' }}>Loading</h1>
+
     return (
         <div className="weather__container">
             <div className="weather__searchContianer">
                 <input className="weather__serachBox" placeholder="Another Location" value={userSearch} onChange={(e) => setUserSearch(e.target.value)} />
-                <button className="weather__searchButton" onClick={() => { getData(userSearch) }} ><img className="weatcher__searchIcon" alt="serachIcon" src={SearchIcon} /></button >
+                <button className="weather__searchButton" onClick={() => { getData(userSearch); }} ><img className="weatcher__searchIcon" alt="serachIcon" src={SearchIcon} /></button >
             </div>
             <p className="weather__title">Location Details</p>
             <div className="weather__details">
