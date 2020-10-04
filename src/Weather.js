@@ -68,11 +68,6 @@ function Weather() {
         })
     }
 
-    // function milisecondsToDate(timeInMili) {
-    //     var date = new Date(timeInMili);
-    //     return date.toDateString();
-    // }
-
     function miliSecondsToTime(timeInMili) {
         var date = new Date(timeInMili);
         return date.toLocaleTimeString();
